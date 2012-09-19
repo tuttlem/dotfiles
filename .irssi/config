@@ -99,17 +99,13 @@ chatnets = {
   fn = {
     type = "IRC";
     nick = "IRCUSERNAME";
-    autosendcmd = "/^msg nickserv IDENTIFY IRCPASSWORD;wait 4000";
+    autosendcmd = "/^msg nickserv IDENTIFY IRCPASSWORD";
   };
 };
 
 channels = (
   { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
-  { name = "silc"; chatnet = "silc"; autojoin = "No"; },
-  { name = "#python"; chatnet = "fn"; autojoin = "yes"; },
-  { name = "#haskell"; chatnet = "fn"; autojoin = "yes"; },
-  { name = "#c"; chatnet = "fn"; autojoin = "yes"; },
-  { name = "#asm"; chatnet = "fn"; autojoin = "yes"; }
+  { name = "silc"; chatnet = "silc"; autojoin = "No"; }
 );
 
 aliases = {
