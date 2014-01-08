@@ -273,3 +273,8 @@ let g:Tex_ViewRule_pdf = "kpdf"
 
 filetype plugin indent on
 syntax on
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
