@@ -1,8 +1,11 @@
 
-:def hoogle \str -> return $ ":! hoogle --count=15 \"" ++ str ++ "\""
+let ghciEscapeShellArg arg = "'" ++ concatMap (\c -> if c == '\"' then "'\"'\"'" else [c]) arg ++ "'"
+
+:def! hoogle return . (":! hoogle --color " ++) . ghciEscapeShellArg
+:def! hinfo return . (":! hoogle --color --info " ++) . ghciEscapeShellArg
 
 :def ghc_pkg (\l -> return $ ":!" ++ GHC.Paths.ghc_pkg ++ " " ++ l)
-:def browser (\l -> return $ ":!elinks " ++ l)
+:def browser (\l -> return $ ":!firefox " ++ l)
 
 let doc p = return $ ":browser " ++ GHC.Paths.libdir ++ dropWhile (/='/') GHC.Paths.docdir ++ relative where { relative | p == "" = "/index.html" | otherwise = p }
 :def doc doc
