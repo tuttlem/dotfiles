@@ -1,0 +1,38 @@
+Config { font = "xft:monaco:size=8:antialias=true"
+       , borderColor = "black"
+       , border = TopB
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = Top
+       , lowerOnStart = True
+       , pickBroadest = False
+       , persistent = False
+       , hideOnStart = False
+       , commands = [ Run Network "wlp2s0" ["-t", "Net: <rx>KB|<tx>KB"
+                                           ,"-L", "0", "-H", "32"
+                                           ,"--normal", "green", "--high", "red"
+                                           ] 10
+                    , Run MultiCpu ["-t", "Cpu: <total>%"
+                                   ,"-L", "3", "-H", "50"
+                                   ,"--normal", "green", "--high", "red"
+                                   ] 10
+                    , Run BatteryP ["BAT0"]
+                                   ["-t", "<acstatus>: (<left>%)"
+                                   ,"-L", "10", "-H", "80", "-p", "3"
+                                   ,"--", "-o", "Batt", "-i", "AC"
+                                   ,"-L", "-15", "-H", "-5",
+                                   "-l", "red", "-m", "blue", "-h", "green"
+                                   ] 10
+                    , Run Memory ["-t","Mem: <usedratio>%"] 10
+                    , Run Swap [] 10
+                    , Run CoreTemp ["-t","Temp: <core0>|<core1>C"
+                                   ,"-L", "40", "-H", "60"
+                                   ,"-l", "lightblue", "-n", "gray90", "-h", "red"
+                                   ] 50
+                    , Run Com "uname" ["-s","-r"] "" 36000
+    		    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%multicpu% | %coretemp% | %battery% | %memory% * %swap% | %wlp2s0% }{ <fc=#ee9a00>%date%</fc>| %uname%"
+       }
