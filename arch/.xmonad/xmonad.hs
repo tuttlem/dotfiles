@@ -1,11 +1,15 @@
 import XMonad
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.DynamicLog
-import XMonad.Util.EZConfig
+import XMonad.Util.Run (spawnPipe)
+import XMonad.Util.EZConfig (additionalKeys)
+import System.IO
 
-main = xmonad =<< statusBar "xmobar" customPP toggleStrutsKey customConfig
+main = do
+   xmproc <- spawnPipe "xmobar"
+   xmonad =<< statusBar "xmobar" customPP toggleStrutsKey (customConfig xmproc)
 
-customConfig = defaultConfig
+customConfig xmproc = defaultConfig
    { terminal = "urxvt"
    , modMask  = mod4Mask
    , borderWidth = 1
@@ -13,6 +17,10 @@ customConfig = defaultConfig
    , focusedBorderColor = "#555555"
    , layoutHook = avoidStruts $ layoutHook defaultConfig
    , manageHook = manageHook defaultConfig <+> manageDocks
+   , logHook = dynamicLogWithPP $ xmobarPP
+                  { ppOutput = hPutStrLn xmproc
+                  , ppTitle = xmobarColor "green" "" . shorten 50
+                  }
    } `additionalKeys` customKeys
 
 customKeys = [ ((mod4Mask, xK_w), spawn "firefox")
