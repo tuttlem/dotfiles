@@ -9,7 +9,7 @@ URxvt.geometry:         90x30
 URxvt.transparent:      false
 URxvt.fading:           0
 URxvt.loginShell:       true
-URxvt.saveLines:        50
+URxvt.saveLines:        500
 URxvt.internalBorder:   3
 URxvt.lineSpace:        0
 URxvt*tintColor:        #ffffff
