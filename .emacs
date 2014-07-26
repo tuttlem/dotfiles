@@ -21,8 +21,8 @@
 (require 'haskell-mode-autoloads)
 (add-to-list 'Info-default-directory-list "/usr/share/emacs/site-lisp/haskell-mode/")
 
-;; turn off the scrollbar
-(scroll-bar-mode -1)
+;; turn off the scrollbar (only for the X version)
+;; (scroll-bar-mode -1)
 
 ;; turn line numbers 
 (global-linum-mode t)
@@ -31,3 +31,7 @@
 
 ;; make tabs insert as spaces
 (setq-default indent-tabs-mode nil)
+
+;; turn on spell checking for modes that need it
+(add-hook 'text-mode-hook 'flyspell-mode)
+(add-hook 'prog-mode-hook 'flyspell-mode)
