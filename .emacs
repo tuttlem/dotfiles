@@ -34,4 +34,18 @@
 
 ;; turn on spell checking for modes that need it
 (add-hook 'text-mode-hook 'flyspell-mode)
-(add-hook 'prog-mode-hook 'flyspell-mode)
+
+;; Backups and autosaves
+(defvar backup-dir (expand-file-name "~/.emacs.d/backup/"))
+(defvar autosave-dir (expand-file-name "~/.emacs.d/autosave/"))
+
+(make-directory backup-dir t)
+(make-directory autosave-dir t)
+
+(setq backup-directory-alist `((".*" . ,backup-dir))
+      auto-save-file-name-transforms `((".*" ,autosave-dir t))
+      backup-by-copying t
+      delete-old-versions t
+      kept-new-versions 6
+      kept-old-versions 2
+      version-control t)
