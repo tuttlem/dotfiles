@@ -16,8 +16,9 @@ URxvt*tintColor:        #ffffff
 URxvt*shading:          0
 URxvt*inheritPixmap:    False
 
-urxvt*font:             xft:monaco:size=8:antialias=true
-urxvt*boldFont:         xft:monaco:bold:size=8:antialias=true
+!urxvt*font:             xft:monaco:size=8:antialias=true
+urxvt*font:             xft:DejaVu Sans Mono:size=8
+urxvt*boldFont:         xft:DejaVu Sans Mono:bold:size=8
 urxvt*termName:         rxvt
 URxvt*letterSpace:      -1
 

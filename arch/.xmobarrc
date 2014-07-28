@@ -1,4 +1,4 @@
-Config { font = "xft:monaco:size=8:antialias=true"
+Config { font = "xft:DejaVu Sans Mono:size=8:antialias=true"
        , borderColor = "black"
        , border = TopB
        , bgColor = "black"
