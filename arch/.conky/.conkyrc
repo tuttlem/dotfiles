@@ -1,0 +1,9 @@
+background yes
+out_to_x no
+out_to_console yes
+update_interval 3
+total_run_times 0
+use_spacer none
+
+TEXT
+ ^i(/home/michael/.conky/dzen-icons/cpu.xbm) ^fg(\#63b3af)${cpu cpu0}% ${cpu cpu1}% ${cpu cpu2}% ${cpu cpu3}%^fg() ^i(/home/michael/.conky/dzen-icons/mem.xbm) ^fg(\#348781)${mem}/${memmax}^fg() ^i(/home/michael/.conky/dzen-icons/bug_01.xbm) ^fg(\#343a46)${running_processes running}^fg() ^i(/home/michael/.conky/dzen-icons/temp.xbm) ^fg(\#dd9648)${acpitemp}°C^fg() ${if_match ${battery_percent BAT0} >=26}^i(/home/michael/.conky/dzen-icons/bat_full_01.xbm)${endif}${if_match ${battery_percent BAT0} <=25} ^fg(\#CC0000)^i(/home/michael/.conky/dzen-icons/bat_low_01.xbm)^fg()${endif} ^fg(\#348781)${battery_percent BAT0}%^fg() ^i(/home/michael/.conky/dzen-icons/fs_02.xbm) ^fg(\#1c4d4a)${fs_used_perc /}%^fg() ^i(/home/michael/.conky/dzen-icons/fs_01.xbm) ^fg(\#63b3af)${fs_used_perc /home}%^fg() ${if_up wlp3s0}^i(/home/michael/.conky/dzen-icons/wifi_02.xbm) ^fg(\#7b828c)${wireless_essid wlp3s0} ${wireless_link_qual wlp3s0}%^fg() ^i(/home/michael/.conky/dzen-icons/net_up_03.xbm) ^fg(\#348781)${upspeedf wlp3s0}^fg() ^i(/home/michael/.conky/dzen-icons/net_down_03.xbm) ^fg(\#1c4d4a)${downspeedf wlp3s0}^fg()${endif} ^i(/home/michael/.conky/dzen-icons/spkr_01.xbm) ${if_match ${exec ~/.conky/amixer-muted.sh} == 1}^fg(\#ff0000)${exec amixer get Master -M | grep -oE "[[:digit:]]*%"}^fg()${else}${exec amixer get Master -M | grep -oE "[[:digit:]]*%"}${endif} ^i(/home/michael/.conky/dzen-icons/clock.xbm) ^fg(\#6EB3AF)${time %a %d %b %H:%M}^fg() ^i(/home/michael/.conky/dzen-icons/info_01.xbm) ^fg(\#7b828c)${kernel}^fg()

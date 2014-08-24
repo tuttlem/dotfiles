@@ -1,0 +1,6 @@
+#!/bin/sh
+
+xsetroot -name ""
+conky --config=/home/michael/.conky/.conkyrc | dzen2 -e - -ta 'right' -h '23' -w '1100' -x '820' -fg '#aaaaaa' -bg '#222222' -fn '-*-dejavu sans mono-*-r-*-*-14-*-*-*-*-*-*-*'
+
+
