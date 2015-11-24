@@ -2,7 +2,7 @@
 	name = Michael Tuttle
 	email = tuttlem@gmail.com
 [core]
-	editor = vim
+	editor = subl -n -w
 	excludesfile = /Users/michael/.gitignore
 [merge]
 	tool = vimdiff
