@@ -17,8 +17,8 @@ URxvt*shading:          0
 URxvt*inheritPixmap:    False
 
 !urxvt*font:             xft:monaco:size=8:antialias=true
-urxvt*font:             xft:DejaVu Sans Mono:size=8
-urxvt*boldFont:         xft:DejaVu Sans Mono:bold:size=8
+urxvt*font:             xft:Ubuntu Mono derivative Powerline:size=12,xft:unifont:size=12
+urxvt*boldFont:         xft:Ubuntu Mono derivative Powerline:bold:size=12,xft:unifont:size=12
 urxvt*termName:         rxvt
 URxvt*letterSpace:      -1
 
