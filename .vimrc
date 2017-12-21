@@ -79,18 +79,24 @@ execute pathogen#infect()
 
 map <C-n> :NERDTreeToggle<CR>
 
-" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#branch#enabled = 1
 
 let g:airline_theme='wombat'
 
-colorscheme desert
+let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_eslint_args = "--fix"
+
+" colorscheme elflord
 
 " disable the damn mouse!!
 set mouse=
 
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
-
+set swapfile
+set dir=~/.vim/tmp
