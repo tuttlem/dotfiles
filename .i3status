@@ -1,85 +1,70 @@
-# github.com/rafi i3status config
-
-# i3status configuration file
-# see "man i3status" for documentation.
-
-# It is important that this file is edited as UTF-8.
-# The following line should contain a sharp s:
-# ß
-# If the above line is not correctly displayed, fix your editor first!
-
 general {
-	colors = true
-	color_good = "#BBBBBB"
-	color_bad = "#CC1616"
-	color_degraded = "#55858E"
-	interval = 2
+colors = true
+color_good = "#BBBBBB"
+color_bad = "#CC1616"
+color_degraded = "#55858E"
+interval = 2
 }
 
-order += "volume master"
 order += "load"
 order += "cpu_usage"
 order += "disk /"
-order += "disk /media/media"
-order += "ethernet enp3s0f2"
-order += "wireless wlp2s0"
+order += "ethernet enp3s0"
+#order += "wireless wlp0s20f0u2"
 order += "tztime local"
+#order += "volume master"
+#order += "battery 0"
+#order += "   "
 #order += "ipv6"
 #order += "run_watch DHCP"
 #order += "run_watch VPN"
 
 volume master {
-#	format = " ♪: %volume  " 
-	device = "default"
-	mixer = "Master"
-	mixer_idx = 0
-	# termsyn font
-	format = "À %volume "
+format = " ♪: %volume "
+device = "default"
+mixer = "Master"
+mixer_idx = 0
 }
 
 load {
-#	format = " Δ: %1min "
-	# termsyn font
-	format = " Δ: %1min "
+format = " Σ: %1min "
 }
 
 cpu_usage {
-	format = "%usage "
+format = " λ: %usage "
 }
 
 disk "/" {
-	format = " ¨ %avail:/ " 
+format = " / %avail "
 }
 
-disk "/media/media" {
-	format = " ¨ %avail:m "
+wireless wlp0s20f0u2 {
+format_up = " W:%quality on %essid (%ip) "
+format_down = " W: DOWN "
 }
 
-wireless wlan0 {
-	format_up = " W: (%quality at %essid) %ip "
-	format_down = " ☡ WiFi "
-}
-
-ethernet eth0 {
-	# if you use %speed, i3status requires root privileges
-#	format_up =  " Ω: %ip  "
-#	format_down = " ∅ eth0  "
-
-	# termsyn font
-	format_up =  " ­ %ip "
-	format_down = " Ð eth0 "
+ethernet enp3s0 {
+format_up =  "­ %ip "
+format_down = " Ð enp3s0 "
 }
 
 run_watch DHCP {
-	pidfile = "/var/run/dhclient*.pid"
+pidfile = "/var/run/dhclient*.pid"
 }
 
 run_watch VPN {
-	pidfile = "/var/run/vpnc/pid"
+pidfile = "/var/run/vpnc/pid"
 }
 
 tztime local {
-#	format = " %h-%d %H:%M ☰ "
-	# termsyn font
-	format = " %h-%d É %H:%M"
+format = " %h-%d %H:%M "
 }
+
+battery 0 {
+        format = " B: %percentage "
+        low_threshold = 30
+        threshold_type = percentage
+        integer_battery_capacity = true
+        color_good = "#0000FF"
+}
+

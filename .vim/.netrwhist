@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/michael/src/ext/github.com/nash-md/twilio-contact-center/public'
-let g:netrw_dirhist_2='/home/michael/src/ext/github.com/nash-md/twilio-contact-center/public/contact'
-let g:netrw_dirhist_3='/home/michael/src/firstmac/api/rtc-api/test/routes'
-let g:netrw_dirhist_4='/home/michael/src/firstmac/api/rtc-api/test'
-let g:netrw_dirhist_5='/home/michael/src/firstmac/api/rtc-api'
