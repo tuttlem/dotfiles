@@ -5,7 +5,7 @@
   tree = log --oneline --decorate --all --graph
   logline = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [merge]
-	tool = vimdiff
+	tool = vim -d
 	conflictstyle = diff3
 [mergetool]
 	prompt = false
